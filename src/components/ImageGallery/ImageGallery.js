@@ -14,13 +14,16 @@ export default class ImageGallery extends Component {
     status: 'idle',
   };
 
+  BASE_URL = 'https://pixabay.com/api';
+  API_KEY = '23560247-693fa480425212983640fe465';
+
   componentDidUpdate(prevProps, prevState) {
-const page = 1;
+    const page = 1;
 
     if (prevProps.searchQuery !== this.props.searchQuery) {
 
       this.setState({ status: 'pending', page: 1 });
-      fetch(`https://pixabay.com/api/?image_type=photo&orientation=horizontal&q=${this.props.searchQuery}&page=${page}&per_page=12&key=23560247-693fa480425212983640fe465`)
+      fetch(`${this.BASE_URL}/?image_type=photo&orientation=horizontal&q=${this.props.searchQuery}&page=${page}&per_page=12&key=${this.API_KEY}`)
         .then(response => {
           return  response.json();
         })
@@ -32,7 +35,7 @@ const page = 1;
   loadMore = () => {
     const page = this.state.page + 1;
 
-    fetch(`https://pixabay.com/api/?image_type=photo&orientation=horizontal&q=${this.props.searchQuery}&page=${page}&per_page=12&key=23560247-693fa480425212983640fe465`)
+    fetch(`${this.BASE_URL}/?image_type=photo&orientation=horizontal&q=${this.props.searchQuery}&page=${page}&per_page=12&key=${this.API_KEY}`)
         .then(response => {
           return  response.json();
         })
