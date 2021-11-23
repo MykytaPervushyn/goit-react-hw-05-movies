@@ -1,33 +1,31 @@
 import s from './Searchbar.module.css';
 import { ImSearch } from 'react-icons/im';
-import { Component } from 'react';
+import { useState } from 'react';
 import PropTypes from "prop-types";
 
-export default class Searchbar extends Component {
-  state = {
-    searchQuery: '',
-  };
-
-    handleQueryChange = e => {
-        this.setState({searchQuery: e.currentTarget.value.toLowerCase()})
+export default function Searchbar({onSubmit}) {
+    const [searchQuery, setSearchQuery] = useState('');
+    
+    const handleQueryChange = e => {
+        setSearchQuery(e.currentTarget.value.toLowerCase())
     };
 
-    handleSubmit = e => {
+
+  const handleSubmit = e => {
         e.preventDefault();
 
-        if (this.state.searchQuery.trim() === '') {
+        if (searchQuery.trim() === '') {
             alert('Please enter search query');
             return;
         }
 
-        this.props.onSubmit(this.state.searchQuery);
-        this.setState({ searchQuery: '' });
+        onSubmit(searchQuery);
+        setSearchQuery('');
     }
 
-    render() {
-      return (
-          <header className={s.searchbar}>
-              <form onSubmit={this.handleSubmit} className={s.form}>
+  return (
+    <header className={s.searchbar}>
+              <form onSubmit={handleSubmit} className={s.form}>
                   <button type="submit" className={s.button}>
                       <ImSearch />
                       <span className={s.buttonLabel}>Search</span>
@@ -38,14 +36,14 @@ export default class Searchbar extends Component {
                       autoComplete="off"
                       autoFocus
                       placeholder="Search images and photos"
-                      value={this.state.searchQuery}
-                      onChange={this.handleQueryChange}
+                      value={searchQuery}
+                      onChange={handleQueryChange}
                   />
               </form>
           </header>
-      );
-    }
-};
+  )
+}
+
 
 Searchbar.propTypes = {
   onSubmit: PropTypes.func,

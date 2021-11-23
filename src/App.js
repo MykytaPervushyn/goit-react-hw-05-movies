@@ -1,51 +1,30 @@
-import { Component } from 'react';
+import { useState } from 'react';
 import './App.css';
 import Searchbar from './components/Searchbar/Searchbar';
 import ImageGallery from './components/ImageGallery/ImageGallery';
 import Modal from './components/Modal/Modal';
 
+export default function App() {
+  const [showModal, setShowModal] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [largeImageURL, setLargeImageURL] = useState('');
 
-import galleryItems from './components/ImageGallery/ImageGalleryItem/galleryItems.json';
-
-class App extends Component {
-  state = {
-    showModal: false,
-    searchQuery: '',
+  const toggleModal = (largeImageURL) => {
+    setShowModal(!showModal);
+    setLargeImageURL(largeImageURL);
   };
 
-  componentDidMount() {
-  }
-
-  toggleModal = (largeImageURL) => {
-    this.setState(({ showModal }) => ({
-      showModal: !showModal,
-      largeImageURL,
-    }));
-  };
-
-  handleFormSubmit = searchQuery => {
-    this.setState({searchQuery: searchQuery})
-  }
-
-  render() {
-console.log('App render')
-
-    const { showModal } = this.state;
-    return (
-      <div>
-        <Searchbar onSubmit={this.handleFormSubmit}/>
+  return (
+    <div>
+        <Searchbar onSubmit={setSearchQuery}/>
       <ImageGallery
-          galleryItems={galleryItems}
-          toggleModal={this.toggleModal}
-          searchQuery={this.state.searchQuery}
+          toggleModal={toggleModal}
+          searchQuery={searchQuery}
 
         />
         {showModal && <Modal
-          toggleModal={this.toggleModal}
-          largeImageURL={this.state.largeImageURL} />}
+          toggleModal={toggleModal}
+          largeImageURL={largeImageURL} />}
     </div>
-    );
-  }
+  )
 }
-
-export default App;
