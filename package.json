@@ -1,5 +1,5 @@
 {
-  "name": "goit-react-hw-04-hooks-images",
+  "name": "goit-react-hw-05-movies",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -32,13 +32,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MykytaPervushyn/goit-react-hw-04-hooks-images.git"
+    "url": "git+https://github.com/MykytaPervushyn/goit-react-hw-05-movies.git"
   },
   "author": "https://github.com/MykytaPervushyn",
   "bugs": {
-    "url": "https://github.com/MykytaPervushyn/goit-react-hw-04-hooks-images/issues"
+    "url": "https://github.com/MykytaPervushyn/goit-react-hw-05-movies/issues"
   },
-  "homepage": "https://MykytaPervushyn.github.io/goit-react-hw-04-hooks-images",
+  "homepage": "https://MykytaPervushyn.github.io/goit-react-hw-05-movies",
   "eslintConfig": {
     "extends": [
       "react-app",
