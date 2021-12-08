@@ -1,2 +1,0 @@
-(this["webpackJsonpgoit-react-hw-05-movies"]=this["webpackJsonpgoit-react-hw-05-movies"]||[]).push([[5],{19:function(t,e,i){"use strict";i.r(e),i.d(e,"default",(function(){return c}));var n=i(20),s=i.n(n),a=i(2);function c(t){var e=t.text;return Object(a.jsx)("h1",{className:s.a.title,children:e})}},20:function(t,e,i){t.exports={title:"PageHeading_title__S34YD"}}}]);
-//# sourceMappingURL=5.db2850b8.chunk.js.map

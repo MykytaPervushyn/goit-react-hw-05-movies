@@ -28,8 +28,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "gh-pages -d build",
     "predeploy": "npm run build",
+    "deploy": "netlify deploy -p",
     "prepare": "husky install"
   },
   "repository": {
@@ -40,7 +40,6 @@
   "bugs": {
     "url": "https://github.com/MykytaPervushyn/goit-react-hw-05-movies/issues"
   },
-  "homepage": "https://MykytaPervushyn.github.io/goit-react-hw-05-movies",
   "eslintConfig": {
     "extends": [
       "react-app",
