@@ -1,6 +1,6 @@
 import { lazy, Suspense } from 'react';
 import Loader from "react-loader-spinner";
-import AppBar from 'AppBar/AppBar';
+import AppBar from './components/AppBar/AppBar';
 import { Routes, Route } from 'react-router-dom';
 import s from './App.module.css';
 
@@ -24,12 +24,12 @@ export default function App() {
           width={100}
           timeout={3000} //3 secs
         />}>
-      <Routes>
-        <Route path="/" element={<HomeView />} />
-        <Route path="movies/" element={<Movies />} />
-        <Route path="/movies/:slug/*" element={<MovieDetailsView />} />
-        <Route path="*" element={<NotFoundView />} />
-      </Routes>
+        <Routes>
+          <Route path="/" element={<HomeView />} />
+          <Route path="movies/" element={<Movies />} />
+          <Route path="/movies/:slug/*" element={<MovieDetailsView />} />
+          <Route path="*" element={<NotFoundView />} />
+        </Routes>
       </Suspense>
     </div>
   )

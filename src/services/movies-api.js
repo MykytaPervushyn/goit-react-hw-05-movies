@@ -9,8 +9,7 @@ export function fetchMovies() {
         return response.json();
       }
       return Promise.reject(new Error('Not found'));
-    }
-  );
+    });
 }
 
 export function fetchMovieById(movieId) {

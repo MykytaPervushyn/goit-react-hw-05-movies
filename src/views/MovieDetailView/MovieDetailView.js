@@ -18,24 +18,17 @@ export default function MovieDetailsView() {
     moviesAPI.fetchMovieById(movieId).then(setMovie);
   }, [movieId]);
 
-  // const onGoBack = () => {
-  //   navigate(
-  //   location.state?.from?.pathname
-  //     ? `${location.state?.from?.pathname}${location.state?.from?.search}`
-  //     : '/',
-  // );
-  // }
-
   return (
     <>
       {movie && (
         <>
-          {/* <button type="button" onClick={onGoBack}>Go back</button> */}
-          <Link to={location.state?.from?.pathname
-         ? `${location.state?.from?.pathname}${location.state?.from?.search}`
-            : '/'}>
+          <Link
+            to={location.state?.from?.pathname
+              ? `${location.state?.from?.pathname}${location.state?.from?.search}`
+              : '/'}>
             <ImArrowLeft style={{ marginRight: 8, marginBottom: -2 }} />
-            Go back</Link>
+            Go back
+          </Link>
           <div className={s.container}>
             <img src={`https://image.tmdb.org/t/p/w342/${movie.poster_path}`} alt={movie.original_title} />
             <div className={s.description}>
@@ -56,8 +49,8 @@ export default function MovieDetailsView() {
                   to={`/movies/${slug}/cast`}
                   state={{ from: location.state.from, label: 'Go back' }}
                 >
-            Cast
-          </Link>
+                  Cast
+                </Link>
 
               </li>
               <li>
@@ -65,13 +58,13 @@ export default function MovieDetailsView() {
                   to={`/movies/${slug}/reviews`}
                   state={{ from: location.state.from, label: 'Go back' }}
                 >
-            Reviews
-            </Link>
+                  Reviews
+                </Link>
               </li>
             </ul>
           
             <hr/>
-            </div>
+          </div>
           <Suspense fallback={
             <Loader
               className={s.loader}
@@ -81,9 +74,9 @@ export default function MovieDetailsView() {
               width={100}
               timeout={3000} //3 secs
             />}>
-          <Routes>
-            <Route path="/cast" element={<MovieCast />} />
-            <Route path="/reviews" element={<Reviews />} />
+            <Routes>
+              <Route path="/cast" element={<MovieCast />} />
+              <Route path="/reviews" element={<Reviews />} />
             </Routes>
           </Suspense>
         </>

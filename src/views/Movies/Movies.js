@@ -63,7 +63,7 @@ export default function Movies() {
           onChange={handleQueryChange}
         />
         <button type="submit">
-                      <span className={s.button}>Search</span>
+          <span className={s.button}>Search</span>
         </button>
       </form>
 
